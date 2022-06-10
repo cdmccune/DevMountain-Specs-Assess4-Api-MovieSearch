@@ -36,7 +36,7 @@ class MovieListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.cellReuseID, for: indexPath) as? MovieListTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.searchCellReuseID, for: indexPath) as? MovieListTableViewCell else {return UITableViewCell()}
         
         cell.movie = MovieController.shared.fetchedMovies[indexPath.row]
         cell.delegate = self
@@ -54,15 +54,13 @@ class MovieListTableViewController: UITableViewController {
 extension MovieListTableViewController: MovieListTableViewCellDelegate {
     func favoriteButtonTapped(movie: Movie, poster: UIImage?) {
         
-        MovieController.shared.favoriteMovies.forEach { movie in
-            print(movie.title)
-        }
-        
         if let movie = MovieController.shared.favoriteMovies.first(where: { favMovie in
             favMovie.title == movie.title
         }) {
+            print("delete")
             MovieController.shared.deleteFavoriteMovie(movie: movie)
         } else {
+            print("add")
             MovieController.shared.createFavoriteMovie(movie: movie, poster: poster)
         }
         tableView.reloadData()
