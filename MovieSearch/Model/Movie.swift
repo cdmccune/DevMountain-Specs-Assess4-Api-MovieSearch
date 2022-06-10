@@ -13,7 +13,7 @@ struct TopLevelObject:Codable {
 }
 
 struct Movie:Codable {
-    var poster: String
+    var poster: String?
     var title: String
     var rating: Double
     var movieDescription: String

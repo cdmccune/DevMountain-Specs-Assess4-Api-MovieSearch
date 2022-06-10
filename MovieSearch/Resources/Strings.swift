@@ -29,4 +29,5 @@ enum URLStrings {
     static let pageValue = "1"
     static let includeAdultName = "include_adult"
     static let includeAdultValue = "false"
+    static let movieBaseURL = "https://image.tmdb.org/t/p/w500"
 }

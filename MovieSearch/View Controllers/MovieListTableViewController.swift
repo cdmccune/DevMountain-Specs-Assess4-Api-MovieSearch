@@ -61,9 +61,12 @@ extension MovieListTableViewController: UISearchBarDelegate {
                     switch result {
                     case .success(let movies):
                         MovieController.shared.fetchedMovies = movies
+                        self.searchBar.text = ""
                         self.tableView.reloadData()
+                        self.searchBar.resignFirstResponder()
                     case .failure(let error):
                         print(error)
+                        self.searchBar.resignFirstResponder()
                     }
                 }
             }

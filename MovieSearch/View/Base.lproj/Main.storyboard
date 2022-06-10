@@ -39,22 +39,32 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-Af-Kdk">
                                             <rect key="frame" x="8" y="78" width="153.5" height="230"/>
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="230" id="BvK-eg-svh"/>
                                                 <constraint firstAttribute="width" secondItem="jzS-Af-Kdk" secondAttribute="height" multiplier="500:750" id="g5M-0L-IsJ"/>
                                             </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="(Movie Description)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lwj-C8-rlu">
-                                            <rect key="frame" x="169.5" y="78" width="236.5" height="230"/>
+                                            <rect key="frame" x="169.5" y="78" width="236.5" height="190"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <color key="textColor" systemColor="labelColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Rating)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAE-KQ-qBE">
+                                            <rect key="frame" x="169.5" y="276" width="236.5" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="gAE-KQ-qBE" firstAttribute="leading" secondItem="jzS-Af-Kdk" secondAttribute="trailing" constant="8" id="4Y0-9K-xmR"/>
+                                        <constraint firstItem="gAE-KQ-qBE" firstAttribute="top" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="8" id="4be-Lh-W9w"/>
                                         <constraint firstAttribute="trailing" secondItem="Lwj-C8-rlu" secondAttribute="trailing" constant="8" id="Iwk-cp-lOp"/>
                                         <constraint firstAttribute="bottom" secondItem="jzS-Af-Kdk" secondAttribute="bottom" constant="16" id="PCc-cy-MKe"/>
+                                        <constraint firstAttribute="trailing" secondItem="gAE-KQ-qBE" secondAttribute="trailing" constant="8" id="Ruo-cu-UyP"/>
                                         <constraint firstAttribute="trailing" secondItem="RDu-bK-FrR" secondAttribute="trailing" constant="8" id="S0M-C6-mBv"/>
                                         <constraint firstItem="Lwj-C8-rlu" firstAttribute="top" secondItem="RDu-bK-FrR" secondAttribute="bottom" constant="8" id="Vjc-uQ-m9A"/>
                                         <constraint firstItem="jzS-Af-Kdk" firstAttribute="leading" secondItem="zek-1M-G0X" secondAttribute="leading" constant="8" id="ayJ-FA-mrT"/>
@@ -62,7 +72,8 @@
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="centerX" secondItem="zek-1M-G0X" secondAttribute="centerX" id="lKi-4h-Lxe"/>
                                         <constraint firstItem="jzS-Af-Kdk" firstAttribute="top" secondItem="RDu-bK-FrR" secondAttribute="bottom" constant="8" id="m4i-ZK-A9Z"/>
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="top" secondItem="zek-1M-G0X" secondAttribute="top" constant="8" id="mML-sa-aLs"/>
-                                        <constraint firstAttribute="bottom" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="16" id="x5m-mz-yaK"/>
+                                        <constraint firstAttribute="bottom" secondItem="gAE-KQ-qBE" secondAttribute="bottom" constant="16" id="vtC-gl-1fN"/>
+                                        <constraint firstAttribute="bottom" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="56" id="x5m-mz-yaK"/>
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="leading" secondItem="zek-1M-G0X" secondAttribute="leading" constant="8" id="yC3-vG-udQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -70,6 +81,7 @@
                                     <outlet property="movieDescritionTextView" destination="Lwj-C8-rlu" id="huE-Nz-AlH"/>
                                     <outlet property="moviePosterImage" destination="jzS-Af-Kdk" id="1Xv-rk-8tD"/>
                                     <outlet property="movieTitleLabel" destination="RDu-bK-FrR" id="dXs-LO-0aW"/>
+                                    <outlet property="ratingLabel" destination="gAE-KQ-qBE" id="GT3-dd-vit"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

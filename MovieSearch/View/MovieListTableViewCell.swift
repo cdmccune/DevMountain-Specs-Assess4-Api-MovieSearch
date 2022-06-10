@@ -11,6 +11,7 @@ class MovieListTableViewCell: UITableViewCell {
 
     //MARK: - Properties
     
+    @IBOutlet var ratingLabel: UILabel!
     @IBOutlet var moviePosterImage: UIImageView!
     @IBOutlet var movieDescritionTextView: UITextView!
     @IBOutlet var movieTitleLabel: UILabel!
@@ -25,7 +26,20 @@ class MovieListTableViewCell: UITableViewCell {
     func updateViews() {
         guard let movie = movie else {return}
 
-        movieTitleLabel.text = movie.title
+        MovieController.shared.fetchImage(movieAccessString: movie.poster) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.moviePosterImage.image = image
+                case .failure(let error):
+                    print(error)
+                }
+                self.movieTitleLabel.text = movie.title
+                self.movieDescritionTextView.text = movie.movieDescription == "" ? "No Description Avaliable 😢" : movie.movieDescription
+                
+                self.ratingLabel.text = movie.rating == 0.0 ? "Rating Not Available 👎" : "Rating: \(movie.rating)"
+                
+            }
+        }
     }
-
 }

@@ -14,6 +14,8 @@ enum MovieErrors: LocalizedError {
     case responseNot200(HTTPURLResponse)
     case badData
     case couldNotDecode(Error)
+    case couldNotDecodeImage
+    
     
     var errorDescription: String? {
         switch self {
@@ -29,7 +31,10 @@ enum MovieErrors: LocalizedError {
             return "Could not unwrap data"
         case .couldNotDecode(let error):
             return "The Data was unable to be decoded: \(error)"
+        case .couldNotDecodeImage:
+            return "The image could not be decoded"
         }
+    
     
         
     }

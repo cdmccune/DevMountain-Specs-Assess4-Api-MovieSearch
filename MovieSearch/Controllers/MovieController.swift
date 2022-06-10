@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class MovieController {
     
@@ -74,10 +75,32 @@ class MovieController {
     }
     
     
-    //I will put this function inside the custom cell.
-    func fecthImages(movie: Movie) {
+    
+    func fetchImage(movieAccessString: String?, completion: @escaping (Result<UIImage, MovieErrors>) -> Void) {
+        
+        guard let url = URL(string: URLStrings.movieBaseURL) else {return completion(.failure(.badBaseURL))}
+        guard let posterPath = movieAccessString else {return completion(.success(UIImage(systemName: "photo.on.rectangle")!))}
+        let finalURL = url.appendingPathComponent(posterPath)
+        
+        
+        URLSession.shared.dataTask(with: finalURL) { data, response, error in
+            if let error = error {
+                return completion(.failure(.errorInSessionSearch(error)))
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    return completion(.failure(.responseNot200(response)))
+                }
+            }
+            
+            guard let data = data else {return completion(.failure(.badData))}
+            
+            guard let image = UIImage(data: data) else {return completion(.failure(.couldNotDecodeImage))}
+            
+            return completion(.success(image))
+        
+        }.resume()
+        
         
     }
-    
-    
 }
