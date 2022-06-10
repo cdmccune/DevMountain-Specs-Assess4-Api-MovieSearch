@@ -11,6 +11,8 @@ enum Strings {
     //static let
     //CoreData
     static let appName = "MovieSearch"
+    
+    static let cellReuseID = "movieCell"
 }
 
 enum URLStrings {

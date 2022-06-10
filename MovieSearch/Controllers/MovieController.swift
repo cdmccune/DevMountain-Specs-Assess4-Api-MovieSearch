@@ -10,6 +10,13 @@ import CoreData
 
 class MovieController {
     
+    //MARK: - Properties
+    
+    static let shared = MovieController()
+    var fetchedMovies: [Movie] = []
+    
+    
+    
     //MARK: - CRD Core Data Functions
     
     
@@ -18,7 +25,7 @@ class MovieController {
     
     //MARK: - API Call Functions
     
-    static func fetchMovies(movieQuery: String, completion: @escaping(Result<[Movie], MovieErrors>) -> Void) {
+    func fetchMovies(movieQuery: String, completion: @escaping(Result<[Movie], MovieErrors>) -> Void) {
         
         //URL
         
