@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct TopLevelObject {
+struct TopLevelObject:Codable {
     var results: [Movie]
     
-    struct Movie {
+    struct Movie:Codable {
         var poster: String
         var title: String
         var rating: Double
