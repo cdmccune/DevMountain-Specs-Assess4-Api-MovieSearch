@@ -20,6 +20,7 @@
 		24B39BDE2853B25000BCDBC4 /* MovieErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B39BDD2853B25000BCDBC4 /* MovieErrors.swift */; };
 		24B39BE02853C2BC00BCDBC4 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B39BDF2853C2BC00BCDBC4 /* MovieListTableViewController.swift */; };
 		24B39BE32853C6E100BCDBC4 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B39BE22853C6E100BCDBC4 /* MovieListTableViewCell.swift */; };
+		24B39BE72853F31A00BCDBC4 /* FavoriteMovie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B39BE62853F31A00BCDBC4 /* FavoriteMovie+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		24B39BDD2853B25000BCDBC4 /* MovieErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieErrors.swift; sourceTree = "<group>"; };
 		24B39BDF2853C2BC00BCDBC4 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
 		24B39BE22853C6E100BCDBC4 /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		24B39BE62853F31A00BCDBC4 /* FavoriteMovie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteMovie+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				2452FF872853A4BF00522A48 /* MovieSearch.xcdatamodeld */,
 				2452FF9C2853A5C800522A48 /* CoreDataStack.swift */,
+				24B39BE62853F31A00BCDBC4 /* FavoriteMovie+Convenience.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				2452FF9F2853A6E300522A48 /* Strings.swift in Sources */,
 				24B39BE32853C6E100BCDBC4 /* MovieListTableViewCell.swift in Sources */,
 				24B39BDE2853B25000BCDBC4 /* MovieErrors.swift in Sources */,
+				24B39BE72853F31A00BCDBC4 /* FavoriteMovie+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

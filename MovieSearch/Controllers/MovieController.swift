@@ -15,12 +15,45 @@ class MovieController {
     
     static let shared = MovieController()
     var fetchedMovies: [Movie] = []
+    var favoriteMovies: [FavoriteMovie] = []
     
+    
+    private lazy var fetchRequest: NSFetchRequest<FavoriteMovie> = {
+        let request = NSFetchRequest<FavoriteMovie>(entityName: "FavoriteMovie")
+        request.predicate = NSPredicate(value: true)
+        let sortDescriptor = NSSortDescriptor(key: "rating", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        return request
+    }()
     
     
     //MARK: - CRD Core Data Functions
     
+    func createFavoriteMovie(movie: Movie, poster: UIImage?) {
+        let data = poster?.jpegData(compressionQuality: 0.7)
+        FavoriteMovie(movieDescription: movie.movieDescription, rating: movie.rating, title: movie.title, poster: data)
+        CoreDataStack.saveContext()
+        
+        
+    }
     
+    func fetchFavoriteMovies() {
+        
+        let movies = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
+        favoriteMovies = movies
+        
+    }
+    
+    func deleteFavoriteMovie(movie: FavoriteMovie) {
+        
+        if let index = favoriteMovies.firstIndex(of: movie) {
+            favoriteMovies.remove(at: index)
+        }
+        
+        CoreDataStack.context.delete(movie)
+        CoreDataStack.saveContext()
+        
+    }
     
     
     

@@ -24,7 +24,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="324" id="2dM-I8-287" customClass="MovieListTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="324" id="2dM-I8-287" customClass="MovieListTableViewCell" customModule="MovieSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88.5" width="414" height="324"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2dM-I8-287" id="zek-1M-G0X">
@@ -53,31 +53,49 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Rating)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAE-KQ-qBE">
-                                            <rect key="frame" x="169.5" y="276" width="236.5" height="32"/>
+                                            <rect key="frame" x="169.5" y="276" width="196.5" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgR-ya-nov">
+                                            <rect key="frame" x="374" y="276" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ZgR-ya-nov" secondAttribute="height" multiplier="1:1" id="IWH-u9-ceB"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <backgroundConfiguration key="background"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="favoriteButtonTapped:" destination="2dM-I8-287" eventType="touchUpInside" id="3bW-jB-DWQ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gAE-KQ-qBE" firstAttribute="leading" secondItem="jzS-Af-Kdk" secondAttribute="trailing" constant="8" id="4Y0-9K-xmR"/>
                                         <constraint firstItem="gAE-KQ-qBE" firstAttribute="top" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="8" id="4be-Lh-W9w"/>
+                                        <constraint firstItem="ZgR-ya-nov" firstAttribute="leading" secondItem="gAE-KQ-qBE" secondAttribute="trailing" constant="8" id="GLO-gS-fKP"/>
                                         <constraint firstAttribute="trailing" secondItem="Lwj-C8-rlu" secondAttribute="trailing" constant="8" id="Iwk-cp-lOp"/>
                                         <constraint firstAttribute="bottom" secondItem="jzS-Af-Kdk" secondAttribute="bottom" constant="16" id="PCc-cy-MKe"/>
-                                        <constraint firstAttribute="trailing" secondItem="gAE-KQ-qBE" secondAttribute="trailing" constant="8" id="Ruo-cu-UyP"/>
                                         <constraint firstAttribute="trailing" secondItem="RDu-bK-FrR" secondAttribute="trailing" constant="8" id="S0M-C6-mBv"/>
                                         <constraint firstItem="Lwj-C8-rlu" firstAttribute="top" secondItem="RDu-bK-FrR" secondAttribute="bottom" constant="8" id="Vjc-uQ-m9A"/>
                                         <constraint firstItem="jzS-Af-Kdk" firstAttribute="leading" secondItem="zek-1M-G0X" secondAttribute="leading" constant="8" id="ayJ-FA-mrT"/>
+                                        <constraint firstItem="ZgR-ya-nov" firstAttribute="top" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="8" id="dFI-GM-m1I"/>
                                         <constraint firstItem="Lwj-C8-rlu" firstAttribute="leading" secondItem="jzS-Af-Kdk" secondAttribute="trailing" constant="8" id="iUd-dE-dx0"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZgR-ya-nov" secondAttribute="bottom" constant="16" id="jzb-zT-RQ4"/>
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="centerX" secondItem="zek-1M-G0X" secondAttribute="centerX" id="lKi-4h-Lxe"/>
                                         <constraint firstItem="jzS-Af-Kdk" firstAttribute="top" secondItem="RDu-bK-FrR" secondAttribute="bottom" constant="8" id="m4i-ZK-A9Z"/>
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="top" secondItem="zek-1M-G0X" secondAttribute="top" constant="8" id="mML-sa-aLs"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZgR-ya-nov" secondAttribute="trailing" constant="8" id="u4v-F8-5dx"/>
                                         <constraint firstAttribute="bottom" secondItem="gAE-KQ-qBE" secondAttribute="bottom" constant="16" id="vtC-gl-1fN"/>
                                         <constraint firstAttribute="bottom" secondItem="Lwj-C8-rlu" secondAttribute="bottom" constant="56" id="x5m-mz-yaK"/>
                                         <constraint firstItem="RDu-bK-FrR" firstAttribute="leading" secondItem="zek-1M-G0X" secondAttribute="leading" constant="8" id="yC3-vG-udQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="ZgR-ya-nov" id="sVq-bs-gsT"/>
                                     <outlet property="movieDescritionTextView" destination="Lwj-C8-rlu" id="huE-Nz-AlH"/>
                                     <outlet property="moviePosterImage" destination="jzS-Af-Kdk" id="1Xv-rk-8tD"/>
                                     <outlet property="movieTitleLabel" destination="RDu-bK-FrR" id="dXs-LO-0aW"/>
@@ -124,6 +142,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
