@@ -10,10 +10,18 @@ import Foundation
 struct TopLevelObject:Codable {
     var results: [Movie]
     
-    struct Movie:Codable {
-        var poster: String
-        var title: String
-        var rating: Double
-        var movieDescription: String
+}
+
+struct Movie:Codable {
+    var poster: String
+    var title: String
+    var rating: Double
+    var movieDescription: String
+    
+    enum CodingKeys: String, CodingKey {
+        case poster = "poster_path"
+        case title = "title"
+        case rating = "vote_average"
+        case movieDescription = "overview"
     }
 }
