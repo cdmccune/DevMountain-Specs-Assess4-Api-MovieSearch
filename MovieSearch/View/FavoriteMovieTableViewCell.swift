@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol FavoriteMovieTableViewCellDelegate: AnyObject {
+    func favoriteButtonTapped(movie: FavoriteMovie)
+}
+
 class FavoriteMovieTableViewCell: UITableViewCell {
 
     //MARK: - Properties
     
+    @IBOutlet var favoriteButton: UIButton!
     @IBOutlet var ratingLabel: UILabel!
     
     @IBOutlet var movieDescription: UITextView!
@@ -22,6 +27,8 @@ class FavoriteMovieTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    var delegate: FavoriteMovieTableViewCellDelegate?
 
     //MARK: - Helper Functions
     
@@ -36,8 +43,15 @@ class FavoriteMovieTableViewCell: UITableViewCell {
             return
         }
         moviePoster.image = UIImage (data: data)
-        
     }
+    
+    @IBAction func favoriteButtonDidClick(_ sender: Any) {
+        guard let favMovie = favMovie else {return}
+        guard let delegate = delegate else {return}
+        
+        delegate.favoriteButtonTapped(movie: favMovie)
+    }
+    
     
 
 }

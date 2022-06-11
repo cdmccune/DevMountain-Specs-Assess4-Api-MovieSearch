@@ -31,7 +31,8 @@ class MovieController {
     
     func createFavoriteMovie(movie: Movie, poster: UIImage?) {
         let data = poster?.jpegData(compressionQuality: 0.7)
-        FavoriteMovie(movieDescription: movie.movieDescription, rating: movie.rating, title: movie.title, poster: data)
+        let newMovie = FavoriteMovie(movieDescription: movie.movieDescription, rating: movie.rating, title: movie.title, poster: data)
+        favoriteMovies.append(newMovie)
         CoreDataStack.saveContext()
         
         

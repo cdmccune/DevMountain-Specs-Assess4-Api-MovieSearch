@@ -12,6 +12,11 @@ class FavoriteMovieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -25,10 +30,17 @@ class FavoriteMovieTableViewController: UITableViewController {
 
         let movie = MovieController.shared.favoriteMovies[indexPath.row]
         cell.favMovie = movie
-        
+        cell.delegate = self
         return cell
     }
     
 
     
 } //End of class
+
+extension FavoriteMovieTableViewController: FavoriteMovieTableViewCellDelegate {
+    func favoriteButtonTapped(movie: FavoriteMovie) {
+        MovieController.shared.deleteFavoriteMovie(movie: movie)
+        self.tableView.reloadData()
+    }
+}

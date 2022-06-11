@@ -20,6 +20,11 @@ class MovieListTableViewController: UITableViewController {
         MovieController.shared.fetchFavoriteMovies()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     
     
     //MARK: - Helper Functions
@@ -57,10 +62,8 @@ extension MovieListTableViewController: MovieListTableViewCellDelegate {
         if let movie = MovieController.shared.favoriteMovies.first(where: { favMovie in
             favMovie.title == movie.title
         }) {
-            print("delete")
             MovieController.shared.deleteFavoriteMovie(movie: movie)
         } else {
-            print("add")
             MovieController.shared.createFavoriteMovie(movie: movie, poster: poster)
         }
         tableView.reloadData()

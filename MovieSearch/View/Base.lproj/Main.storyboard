@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteMovieCell" rowHeight="328" id="azt-M6-Pti" customClass="FavoriteMovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoriteMovieCell" rowHeight="328" id="azt-M6-Pti" customClass="FavoriteMovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="328"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="azt-M6-Pti" id="c04-sl-9Al">
@@ -166,36 +166,54 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(rating)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyf-Fo-MbP">
-                                            <rect key="frame" x="169.5" y="291.5" width="236.5" height="20.5"/>
+                                            <rect key="frame" x="169.5" y="288" width="204.5" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6MW-Id-JMX">
-                                            <rect key="frame" x="169.5" y="82" width="236.5" height="201.5"/>
+                                            <rect key="frame" x="169.5" y="82" width="236.5" height="198"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cse-CA-XvV">
+                                            <rect key="frame" x="382" y="288" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Cse-CA-XvV" secondAttribute="height" multiplier="1:1" id="vRj-Ez-NyQ"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="">
+                                                <backgroundConfiguration key="background" image="heart.fill" catalog="system" imageContentMode="scaleAspectFit"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="favoriteButtonDidClick:" destination="azt-M6-Pti" eventType="touchUpInside" id="MQq-WD-Sa8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="wlc-B2-sms" secondAttribute="trailing" constant="8" id="0jH-QZ-c57"/>
+                                        <constraint firstAttribute="trailing" secondItem="Cse-CA-XvV" secondAttribute="trailing" constant="8" id="1rQ-iY-rkr"/>
                                         <constraint firstAttribute="trailing" secondItem="6MW-Id-JMX" secondAttribute="trailing" constant="8" id="50V-ge-ANH"/>
+                                        <constraint firstItem="Cse-CA-XvV" firstAttribute="top" secondItem="6MW-Id-JMX" secondAttribute="bottom" constant="8" id="7cf-et-QyA"/>
                                         <constraint firstItem="wlc-B2-sms" firstAttribute="top" secondItem="c04-sl-9Al" secondAttribute="top" constant="8" id="8gV-6N-1q4"/>
                                         <constraint firstItem="6MW-Id-JMX" firstAttribute="top" secondItem="wlc-B2-sms" secondAttribute="bottom" constant="8" id="AdQ-XG-0at"/>
                                         <constraint firstItem="wlc-B2-sms" firstAttribute="leading" secondItem="c04-sl-9Al" secondAttribute="leading" constant="8" id="bli-V0-tTk"/>
                                         <constraint firstItem="6MW-Id-JMX" firstAttribute="leading" secondItem="HPG-2X-8DZ" secondAttribute="trailing" constant="8" id="dDL-EI-DXt"/>
                                         <constraint firstItem="Jyf-Fo-MbP" firstAttribute="leading" secondItem="HPG-2X-8DZ" secondAttribute="trailing" constant="8" id="fOd-md-sXk"/>
                                         <constraint firstItem="HPG-2X-8DZ" firstAttribute="top" secondItem="wlc-B2-sms" secondAttribute="bottom" constant="8" id="gP2-M5-hbY"/>
+                                        <constraint firstItem="Cse-CA-XvV" firstAttribute="leading" secondItem="Jyf-Fo-MbP" secondAttribute="trailing" constant="8" id="l0H-iw-CTf"/>
+                                        <constraint firstAttribute="bottom" secondItem="Cse-CA-XvV" secondAttribute="bottom" constant="16" id="oqL-TZ-fzy"/>
                                         <constraint firstAttribute="bottom" secondItem="HPG-2X-8DZ" secondAttribute="bottom" constant="16" id="r9F-9q-O42"/>
                                         <constraint firstAttribute="bottom" secondItem="Jyf-Fo-MbP" secondAttribute="bottom" constant="16" id="rN8-MK-WuD"/>
                                         <constraint firstItem="HPG-2X-8DZ" firstAttribute="leading" secondItem="c04-sl-9Al" secondAttribute="leading" constant="8" id="ulx-bF-46u"/>
-                                        <constraint firstAttribute="trailing" secondItem="Jyf-Fo-MbP" secondAttribute="trailing" constant="8" id="yBr-lU-oSu"/>
                                         <constraint firstItem="Jyf-Fo-MbP" firstAttribute="top" secondItem="6MW-Id-JMX" secondAttribute="bottom" constant="8" id="zeh-97-Ltr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="Cse-CA-XvV" id="WUB-oh-kXk"/>
                                     <outlet property="movieDescription" destination="6MW-Id-JMX" id="3Nh-T1-lpL"/>
                                     <outlet property="moviePoster" destination="HPG-2X-8DZ" id="tar-XU-1la"/>
                                     <outlet property="movieTitleLabel" destination="wlc-B2-sms" id="oE7-fq-aLF"/>
@@ -255,6 +273,7 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

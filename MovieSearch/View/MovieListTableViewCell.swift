@@ -62,6 +62,7 @@ class MovieListTableViewCell: UITableViewCell {
                     isFavorite = true
                 }
                 
+                
                 let image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
                 self.favoriteButton.setImage(image, for: .normal)
                 
